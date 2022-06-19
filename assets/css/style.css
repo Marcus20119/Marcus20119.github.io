@@ -1,0 +1,595 @@
+/* Reset CSS */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/* Thẻ bao trùm tất cả */
+html {
+    scroll-behavior: smooth;
+    position: relative;
+    display: block;
+    min-height: 100%;
+    width: calc(100vw - scrollbarWidth);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+    body, #main {
+        position: relative;
+        display: block;
+        min-height: 100%;
+        width: calc(100vw - scrollbarWidth);
+    }
+
+/*----------------------------------------
+Common Class
+----------------------------------------*/
+.row {
+    display: block;
+    min-width: 100%;
+    height: auto;
+    margin-left: -8px;
+    margin-right: -8px;
+    font-size: 0;
+}
+.col {
+    display: inline-block;
+    height: auto;
+    padding-left: 8px;
+    padding-right: 8px;
+    padding-bottom: 16px;
+    vertical-align: top;
+    font-size: 15px;
+}
+    .col-1 {
+        width: 100%;
+    }
+    .col-2 {
+        width: 50%;
+    }
+    .col-3 {
+        width: calc(100%/3);
+    }
+    /* thêm class này vào cột cuối cùng của hàng khi:
+        - Hàng chứa cột này có nhiều hơn 1 cột
+        - Trong cột này lại chia thêm nhiều hàng
+     */
+    .col-last {
+        padding-bottom: 0;
+    }
+.section {
+    display: block;
+    height: auto;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 64px 16px;
+}
+
+
+/*----------------------------------------
+Header Section
+----------------------------------------*/
+#header {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 46.5px;
+    z-index: 1;
+
+    background-color: black;
+}
+    #nav {
+        /* Sử dụng inline-block để kế thừa kích thước và tự động bao lấy các thành phần con */
+        display: inline-block;
+        position: relative;
+        text-align: left;
+        cursor: pointer;
+    }
+        #nav .nav-tab {
+            display: inline-block;
+            /* Sử dụng relative vì có nhiều thành phần riêng biệt trong khối #nav */
+            position: relative;
+            font-size: 15px;
+            color: #fff;
+        }
+            #nav .nav-tab a {
+                display: block;
+                line-height: 46.5px;
+                padding: 0 24px;
+
+                text-decoration: none;
+                text-transform: uppercase;
+                
+                color: #fff;
+            }
+            /* Dùng > để không ảnh hưởng đến những thẻ a và .nav-tab:hover phía sau */
+            #nav > .nav-tab:hover > a {
+                color: black;
+                background-color: #ccc;
+            }
+                #nav a .caret-down-icon {
+                    font-size: 15px;
+                }
+            #nav .nav-tab .subnav {
+                display: none;
+                float: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                /* Tăng chiều dài cái bảng xổ xuống */
+                min-width: 160px; 
+
+                background-color: #fff;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            }
+            #nav > .nav-tab:hover > .subnav{
+                display: block;
+            }
+                #nav .subnav .nav-subtab {
+                    width: 100%;
+                }
+                    #nav .nav-subtab a {
+                        line-height: 38.5px;
+
+                        text-transform: none;
+                        padding: 0 16px;
+
+                        color: black;
+                    }
+                    #nav .nav-subtab:hover a {
+                        color: black;
+                        background-color: #ccc;
+    
+                    }
+    #search,                
+    #mb-menu{
+        position: absolute;
+        top: 0;
+        right: 0;
+        display: block;
+        cursor: pointer;
+        color: #fff;
+    }
+    #search:hover {
+        background-color: #f44336;
+    }
+    #mb-menu:hover {
+        background-color: #ccc;
+        color: black;
+    }
+        #search .search-icon,
+        #mb-menu .mb-menu-icon {
+            line-height: 46.5px;
+            padding: 0px 24px;
+
+            font-size: 15px;
+        }
+
+
+/*----------------------------------------
+Slider Section 
+----------------------------------------*/
+#slider {
+    position: relative;
+    margin-top: 46.5px;
+    /* 50% của chính nó */
+    padding-top: 50%;
+
+    background: url('/assets/img/slider/slider_1.jpg') top center / cover no-repeat;
+}
+    #slider .slider-content {
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        padding: 32px 16px;
+
+        text-align: center;
+        color: #fff;
+    }
+        #slider .slider-heading {
+            margin: 10px 0;
+            font-size: 40px;
+            font-weight: lighter;
+        }
+        #slider .slider-description {
+            margin: 15px 0;
+            font-size: 15px;
+            font-weight: bolder;
+        }
+
+
+/*----------------------------------------
+Content Section
+----------------------------------------*/
+#content {
+    display: block;
+    position: relative;
+}
+    /* CSS những đối tượng chung */
+    #content div .content-heading {
+        display: block;
+        margin: 10px 0;
+
+        font-family: "Segoe UI",Arial,sans-serif;
+        font-size: 30px;
+        font-weight: 400;
+        letter-spacing: 4px;
+        text-align: center;
+
+    }
+    #content div .content-sub-heading {
+        margin: 15px 0;
+
+        font-family: "Lato", sans-serif;
+        font-size: 15px;
+        font-style: italic;
+        text-align: center;
+        font-weight: 300;
+        /* Chỉnh độ trong suốt */
+        opacity: 0.4;
+    }
+
+    /* CSS từng phần */
+    /* BAND Section */ 
+    #band{
+        background-color: #fff;
+        color: black;   
+    }   
+        #band .content-description {
+            margin: 15px 0;
+            width: auto;
+
+            font-family: "Lato", sans-serif;
+            font-size: 15px;
+            text-align: justify;
+            /* Tiếng việt thì line-height: 1.6 */
+            line-height: 1.4;
+        }
+        #band .member-section {
+            padding: 32px 0;
+            /* Loại bỏ khoảng trắng */
+            font-size: 0px;
+        }
+            #band .member-section .member{
+                text-align: center;
+                font-size: 15px;
+            }
+                #band .member .member-name {
+                    margin: 15px 0;
+                }
+                #band .member .member-img {
+                    display: inline-block;
+                    width: 60%;
+                    height: 210px;
+                    background-size: cover;
+                    background-position: center;
+                }
+                #band .member .niall_horan {
+                    background-image: url('../../assets/img/content/niall_horan.jpg');
+                }
+                #band .member .harry_styles {
+                    background-image: url('../../assets/img/content/harry_styles.jfif');
+                }
+                #band .member .liam_payne {
+                    background-image: url('../../assets/img/content/liam_payne.jpg');
+                }
+    /* TOUR Section */ 
+    #tour {
+        display: block;
+        height: auto;
+        width: 100%;
+
+        background-color: black;
+    }
+        #tour-content {
+            background-color: black;
+            color: #fff;
+        }
+            #tour-content .month {
+                position: relative;
+                display: block;
+                width: 100%;
+                height: auto;
+                border-bottom: 1px solid #ddd;
+                padding: 8px 16px;
+
+                background-color: #fff;
+                color: #757575;
+            }
+                #tour-content .month .sold-out {
+                    display: inline-block;
+                    margin-left: 16px;
+                    padding: 0 8px;
+                    height: 20px;
+
+                    text-align: center;
+                    line-height: 18px;
+                    color: #fff;
+                    background-color: #f44336;
+                }
+                #tour-content .nov .quantity {
+                    display: inline-block;
+                    position: absolute;
+                    border-radius: 50%;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    right: 20px;
+                    height: 25px;
+                    width: 25px;
+                    text-align: center;
+                    line-height: 23px;
+
+
+                    background-color: black;
+                    color: #fff;
+                }
+            #tour-content .tickets {
+                padding: 32px 0;
+                margin-top: 12px;
+            }
+                #tour-content .tickets .city {
+                    background-color: black;
+                    color: black;
+                }
+                    #tour-content .city .img {
+                        display: block;
+                        width: 100%;
+                        height: 180px;
+                        background-position: center;
+                        background-size: cover;
+                    }
+                    #tour-content .city .img:hover {
+                        opacity: 0.6;
+                    }
+                    #tour-content .new-york .img {
+                        background-image: url('../../assets/img/content/city/new_york.jpg');
+                    }
+                    #tour-content .paris .img {
+                        background-image: url('../../assets/img/content/city/paris.jpg');
+                    }
+                    #tour-content .san-francisco .img {
+                        background-image: url('../../assets/img/content/city/san_fran.jpg');
+                    }
+                    #tour-content .city .city-content {
+                        display: inline-block;
+                        width: 100%;
+                        height: auto;
+                        padding: 0 15px;
+                        background-color: #fff;
+                    }
+                        #tour-content .city-content h2 {
+                            margin: 15px 0;
+                            font-size: 20px;
+                            font-weight: 600;
+                        }
+                        #tour-content .city-content h3 {
+                            margin: 15px 0;
+                            font-size: 16px;
+                            opacity: 0.6;
+                            font-weight: 400;
+                            letter-spacing: 0.1px;
+                        }
+                        #tour-content .city-content p {
+                            margin: 15px 0;
+                        }
+                        #tour-content .city-content .button {
+                            display: inline-block;
+                            text-decoration: none;
+                            padding: 10px 16px;
+                            margin-bottom: 15px;
+
+                            font-size: 16px;
+                            color: #fff;
+                            background-color: black;
+                            border: none;
+                        }
+                        #tour-content .city-content .button:hover {
+                            cursor: pointer;
+                            color: black;
+                            background-color: #ccc;
+                        }
+    /* CONTACT Section */ 
+    #contact {
+        background-color: #fff;
+        color: black;
+    }
+        #contact .contact-content {
+            padding: 32px 0;
+            
+        }
+            #contact .info {
+                font-size: 18px;
+            }
+            #contact .info p {
+                    line-height: 1.5;
+                }
+                    #contact p i {
+                        width: 30px;
+                    }
+                    #contact p a {
+                        color: #4b7071;
+                    }
+                    #contact p a:hover {
+                        color: #2a5459;
+                    }
+            #contact .input {
+                font-size: 15px;
+            }
+                    #contact .row-first input,
+                    #contact .row-second input {
+                        display: inline-block;
+                        width: 100%;
+                        font-size: 15px;
+                        padding: 8px;
+                        border: 1px solid #ccc;
+                    }
+                #contact .input .row-third {
+                    text-align: right;
+                }
+                    #contact .row-third input{
+                        display: inline-block;
+                        padding: 10px 16px;
+                        font-size: 15px;
+                        border: none;
+                        background-color: black;
+                        color: #fff;
+                    }
+                    #contact .row-third input:hover{
+                        cursor: pointer;
+                        background-color: #ddd;
+                        color: black;
+                    }
+    /* MAP Section */             
+    #content .map img{
+        width: 100%;
+        filter: grayscale(50%);
+    }
+
+
+/*----------------------------------------
+Fotter Section 
+----------------------------------------*/
+#footer .row-first{
+    text-align: center;
+}
+    #footer .row-first a {
+        font-size: 20px;
+        color: rgba(0, 0, 0, 0.6);
+        text-decoration: none;
+    }
+    #footer .row-first a:hover {
+        color: rgba(0, 0, 0, 0.4);
+    }
+#footer .row-second{
+    text-align: center;
+    margin-top: 15px;
+}
+    #footer .row-second p {
+        color: rgba(0, 0, 0, 0.6);
+    }
+        #footer p a {
+            color: rgba(0, 0, 0, 0.6);
+        }
+
+
+/*----------------------------------------
+Modal Section 
+----------------------------------------*/
+#modal {
+    position: fixed;
+    /* display: flex; */
+    display: none;
+    align-items: center;
+    justify-content: center;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+
+    background-color: rgba(0, 0, 0, 0.5);
+}
+#modal.open {
+    display: block;
+}
+    @keyframes modalFlowUp{
+        from {
+            opacity: 0;
+            transform: translate(-50%, -150%);
+        }
+        to {
+            opacity: 1;
+            transform: translate(-50%, -60%);
+        }
+    }
+    #modal .container {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -60%);
+        display: block;
+        width: 900px;
+        max-width: calc(100% - 32px);
+        height: auto;
+
+        background-color: #fff;
+
+        animation: modalFlowUp ease 0.6s;
+    }
+        #modal .container .header {
+            position: relative;
+            display: block;
+            width: 100%;
+            height: auto;
+            padding: 32px 16px;
+            text-align: center;
+            line-height: 65px;
+
+            background-color: #009688;
+            color: #fff;
+        }
+            #modal .header .x {
+                position: absolute;
+                display: inline-block;
+                top: 0;
+                right: 0;
+                padding: 15px;
+                line-height: 15px;
+            }
+            #modal .header .x:hover {
+                color: black;
+                background-color: rgba(255, 255, 255, 0.7);
+                cursor: pointer;
+            }
+            #modal .header .title {
+                display: inline-block;
+                font-size: 30px;
+                font-weight: 400;
+                letter-spacing: 4px;
+            }
+        #modal .container .body {
+            display: block;
+            width: 100%;
+            height: auto;
+            padding: 0 16px;
+            font-weight: 400;
+        }
+            #modal .body label {
+                display: block;
+                margin: 20px 0 10px;
+                font-size: 15px;
+            }
+            #modal .body input {
+                display: block;
+                width: 100%;
+                border: 1px solid #ccc;
+                padding: 8px;
+                font-size: 15px;
+            }
+            #modal .body button {
+                display: block;
+                width: 100%;
+                padding: 15px;
+                margin: 20px 0;
+
+                color: #fff;
+                background-color: #009688;
+                border: none;
+                font-size: 20px;
+                font-weight: 500;
+            }
+            #modal .body button:hover {
+                color: black;
+                background-color: rgba(0, 150, 136, 0.7);
+                cursor: pointer;
+            }
+        #modal .container .footer {
+            padding: 16px;
+            text-align: right;
+        }
+            #modal .footer a {
+                color: #2196F3;
+            }
+        

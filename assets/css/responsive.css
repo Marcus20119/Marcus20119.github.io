@@ -1,0 +1,94 @@
+/*PC*/
+@media (min-width:1024px) {
+    #mb-menu {
+        display: none;
+    }
+}
+
+/*Tablet*/
+@media (min-width:740px) and (max-width:1023px){
+    #mb-menu {
+        display: none;
+    }
+    #footer .row-first a {
+        font-size: 30px;
+    }
+}
+
+/*Mobile*/
+@media (max-width:739px) {
+    .mb-col-1 {
+        width: 100%;
+    }
+    .mb-col-2 {
+        width: 50%;
+    }
+    .mb-col-3 {
+        width: calc(100%/3);
+    }
+    /*----------------------------------------
+    Header Section
+    ----------------------------------------*/
+    #header {
+        overflow: hidden;
+    }
+        #nav {
+            display: block;
+        }
+            #nav .nav-tab {
+                display: block;
+            }
+            #nav .nav-tab:first-child{
+                display: inline-block;
+            }
+                #nav .nav-tab .subnav {
+                    position: initial;
+                    background-color: black;
+                }
+                    #nav .subnav .nav-subtab {
+                        background-color: #333;
+                    }
+                        #nav .nav-subtab a {
+                            color: #fff;
+                            padding: 4px 16px;
+                        }
+        #search {
+            display: none;
+        }
+
+
+    /*----------------------------------------
+    Slider Section 
+    ----------------------------------------*/
+    #slider .slider-content {
+        display: none;
+    }
+
+
+    /*----------------------------------------
+    Content Section
+    ----------------------------------------*/
+    #band .member .member-img {
+        height: 80vw;
+    }
+    #tour-content .city .img {
+        height: 60vw;
+    }
+        #tour-content .city-content .button {
+            width: 100%;
+            padding: 14px 16px
+        }
+    #contact .row-first input, 
+    #contact .row-second input {
+        padding: 15px 8px;
+    }
+    #contact .row-third input{
+        width: 100%;
+        margin-top: 12px;
+        padding: 15px 16px;
+    }
+
+    #footer .row-first a {
+        font-size: 30px;
+    }
+}
