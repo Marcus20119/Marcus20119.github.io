@@ -551,7 +551,7 @@
       }
    }
    &__arrow {
-      @include block(8vw, 10vw);
+      @include block(5vw, 10vw);
       object-fit: cover;
       object-position: center center;
       position: absolute;
@@ -563,8 +563,7 @@
          drop-shadow(0 0 10px var(--primary-color-dark)) drop-shadow(0 0 10px black);
       cursor: pointer;
       top: calc(53.33333% + var(--trailer-text));
-      transform: translateY(-40%);
-      object-fit: contain;
+      object-fit: cover;
       object-position: center center;
 
       &--next {

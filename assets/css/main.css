@@ -951,16 +951,20 @@ li {
 }
 .trailer__arrow {
   display: block;
-  height: 2.25vw;
+  width: 8vw;
+  height: 10vw;
   object-fit: cover;
   object-position: center center;
   position: absolute;
   z-index: 7;
-  padding: 1vw 0;
+  padding: 0.45vw 0;
   -webkit-filter: drop-shadow(0 0 2px var(--primary-color)) drop-shadow(0 0 5px var(--primary-color-dark)) drop-shadow(0 0 10px var(--primary-color-dark)) drop-shadow(0 0 10px black);
   filter: drop-shadow(0 0 2px var(--primary-color)) drop-shadow(0 0 5px var(--primary-color-dark)) drop-shadow(0 0 10px var(--primary-color-dark)) drop-shadow(0 0 10px black);
   cursor: pointer;
   top: calc(53.33333% + var(--trailer-text));
+  transform: translateY(-40%);
+  object-fit: contain;
+  object-position: center center;
 }
 .trailer__arrow--next {
   left: 58%;
