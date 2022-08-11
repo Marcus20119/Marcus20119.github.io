@@ -1,0 +1,178 @@
+@mixin text($size: 1.6rem, $color: var(--text-color-light), $line-height: default, $weight: default, $align: default) {
+   font-size: $size;
+   color: $color;
+   @if ($line-height != default) {
+      line-height: $line-height;
+   } @else {
+      line-height: $size;
+   }
+   @if ($weight != default) {
+      font-weight: $weight;
+   }
+   @if ($align != default) {
+      text-align: $align;
+   }
+}
+
+@mixin block($width: default, $height: default, $color: default) {
+   display: block;
+   @if ($width != default) {
+      width: $width;
+   }
+   @if ($height != default) {
+      height: $height;
+   }
+   @if ($color != default) {
+      background-color: $color;
+   }
+}
+
+@mixin inlineBlock($width: default, $height: default, $color: default) {
+   display: inline-block;
+   @if ($width != default) {
+      width: $width;
+   }
+   @if ($height != default) {
+      height: $height;
+   }
+   @if ($color != default) {
+      background-color: $color;
+   }
+}
+
+@mixin flex($width: default, $height: default, $color: default) {
+   display: flex;
+   @if ($width != default) {
+      width: $width;
+   }
+   @if ($height != default) {
+      height: $height;
+   }
+   @if ($color != default) {
+      background-color: $color;
+   }
+}
+
+@mixin absoluteCenter($direction: 'both') {
+   position: absolute;
+
+   @if ($direction == 'X') {
+      left: 50%;
+      transform: translateX(-50%);
+   }
+   @if ($direction == 'Y') {
+      top: 50%;
+      transform: translateY(-50%);
+   }
+   @if ($direction == 'both') {
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+   }
+}
+
+@mixin shortenLine($line: default) {
+   /* Rút ngắn dòng */
+   display: -webkit-box;
+   -webkit-line-clamp: $line;
+   -webkit-box-orient: vertical;
+   overflow: hidden;
+   text-overflow: ellipsis;
+}
+
+@mixin boxShadow($style: 1) {
+   @if ($style == 1) {
+      box-shadow: rgba(100, 100, 110, 0.2) 0px 7px 29px 0px;
+   }
+   @if ($style == 2) {
+      box-shadow: rgba(100, 100, 110, 0.15) 0px 2px 5px 0px;
+   }
+}
+
+@mixin saw-tooth-horizontal($width: 12px, $bg: #fff) {
+   background-image:
+        /* Left jagged */ linear-gradient(135deg, $bg 50%, transparent 50%),
+      linear-gradient(45deg, $bg 50%, transparent 50%),
+      /* Right jagged */ linear-gradient(-135deg, $bg 50%, transparent 50%),
+      linear-gradient(-45deg, $bg 50%, transparent 50%);
+   background-position:
+        /* Left jagged */ top left, top left, /* Right jagged */ top right, top right;
+   background-size: $width $width;
+   background-repeat: repeat-y;
+}
+@mixin saw-tooth-vertical($width: 12px, $bg: #fff) {
+   background-image:
+        /* Top jagged */ linear-gradient(135deg, $bg 50%, transparent 50%),
+      linear-gradient(225deg, $bg 50%, transparent 50%),
+      /* Bottom jagged */ linear-gradient(45deg, $bg 50%, transparent 50%),
+      linear-gradient(-45deg, $bg 50%, transparent 50%);
+   background-position:
+        /* Top jagged */ top left, top left, /* Bottom jagged */ bottom left, bottom left;
+   background-size: $width $width;
+   background-repeat: repeat-x;
+}
+@mixin saw-tooth($width: 12px, $bg: #fff) {
+   background-image:
+        /* Top jagged */ linear-gradient(135deg, $bg 50%, transparent 50%),
+      linear-gradient(225deg, $bg 50%, transparent 50%),
+      /* Bottom jagged */ linear-gradient(45deg, $bg 50%, transparent 50%),
+      linear-gradient(-45deg, $bg 50%, transparent 50%),
+      /* Left jagged */ linear-gradient(135deg, $bg 50%, transparent 50%),
+      linear-gradient(45deg, $bg 50%, transparent 50%),
+      /* Right jagged */ linear-gradient(-135deg, $bg 50%, transparent 50%),
+      linear-gradient(-45deg, $bg 50%, transparent 50%);
+   background-position:
+        /* Top jagged */ top left, top left, /* Bottom jagged */ bottom left, bottom left,
+      /* Left jagged */ top left, top left, /* Right jagged */ top right, top right;
+   background-size: $width $width;
+   background-repeat: repeat-x, repeat-x, repeat-x, repeat-x, repeat-y, repeat-y, repeat-y, repeat-y;
+}
+
+@mixin responsive($device) {
+   @if ($device == 'mobile') {
+      @media only screen and (max-width: 46.1875em) {
+         @content;
+      }
+   }
+   @if ($device == 'tablet') {
+      @media only screen and (max-width: 63.9375em) and (min-width: 46.25em) {
+         @content;
+      }
+   }
+   @if ($device == 'tablet and mobile') {
+      @media only screen and (max-width: 63.9375em) {
+         @content;
+      }
+   }
+   @if ($device == 'pc') {
+      @media only screen and (min-width: 64em) {
+         @content;
+      }
+   }
+}
+
+@mixin characterAfter() {
+   @include block(default, 38px, black);
+   @include text(1.8rem, var(--primary-color), 38px, default, center);
+   font-family: var(--primary-font);
+   border-radius: 10px;
+   padding: 0 16px;
+   min-width: 120px;
+   border: 2px solid red;
+   box-shadow: red 0px 0px 10px, red 0px 0px 10px inset, red 0px 0px 5px, red 0px 0px 5px inset;
+   position: absolute;
+   display: none;
+   animation: FloatFromCaret ease 0.3s;
+   z-index: 6;
+}
+@mixin characterBefore() {
+   content: '';
+   display: block;
+   border-style: solid;
+   position: absolute;
+   border-color: transparent transparent var(--primary-color) transparent;
+   display: none;
+   animation: Appear ease 0.3s;
+   filter: brightness(0.5);
+   z-index: 5;
+}

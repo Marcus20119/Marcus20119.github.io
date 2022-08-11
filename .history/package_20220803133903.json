@@ -1,0 +1,26 @@
+{
+  "name": "01_strager_things",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch": "sass --watch assets/sass/main.scss assets/css/main.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Marcus20119/stranger_things.git"
+  },
+  "keywords": [
+    "strangerthings"
+  ],
+  "author": "Mark20119",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Marcus20119/stranger_things/issues"
+  },
+  "homepage": "https://github.com/Marcus20119/stranger_things#readme",
+  "devDependencies": {
+    "sass": "^1.54.1"
+  }
+}
