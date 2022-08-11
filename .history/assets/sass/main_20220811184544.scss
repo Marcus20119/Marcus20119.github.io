@@ -147,10 +147,12 @@
          }
       }
       &-text {
-         @include text(1.6rem, #474747, default, 900);
+         @include text(1.6rem, var(--primary-color));
          margin-right: 4px;
          align-self: flex-end;
          margin-bottom: 6px;
+         text-shadow: 0 0 2px var(--primary-color-dark);
+         @include text(1.6rem, #474747, default, 900);
          font-style: italic;
       }
    }

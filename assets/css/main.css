@@ -575,12 +575,13 @@ li {
 }
 .wallpaper__sound-text {
   font-size: 1.6rem;
-  color: var(--primary-color);
+  color: #474747;
   line-height: 1.6rem;
+  font-weight: 900;
   margin-right: 4px;
   align-self: flex-end;
   margin-bottom: 6px;
-  text-shadow: 0 0 2px var(--primary-color-dark);
+  font-style: italic;
 }
 
 .recap {
