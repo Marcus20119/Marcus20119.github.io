@@ -956,7 +956,7 @@ li {
   object-position: center center;
   position: absolute;
   z-index: 7;
-  padding: 0.45vw 0;
+  padding: 1vw 0;
   -webkit-filter: drop-shadow(0 0 2px var(--primary-color)) drop-shadow(0 0 5px var(--primary-color-dark)) drop-shadow(0 0 10px var(--primary-color-dark)) drop-shadow(0 0 10px black);
   filter: drop-shadow(0 0 2px var(--primary-color)) drop-shadow(0 0 5px var(--primary-color-dark)) drop-shadow(0 0 10px var(--primary-color-dark)) drop-shadow(0 0 10px black);
   cursor: pointer;
